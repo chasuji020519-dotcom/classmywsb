@@ -3,444 +3,414 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SJ*5 Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>Cha Suji Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Pretendard',sans-serif;
-}
 
-:root{
-    --bg:#f8f8f8;
-    --text:#111;
-    --gray:#777;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Pretendard',sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    background:var(--bg);
-    color:var(--text);
-    overflow-x:hidden;
+background:#0b0b0b;
+color:white;
+overflow-x:hidden;
 }
 
-/* 커서 */
-
-.cursor{
-    width:20px;
-    height:20px;
-    background:#111;
-    border-radius:50%;
-    position:fixed;
-    transform:translate(-50%,-50%);
-    pointer-events:none;
-    z-index:9999;
-    transition:.2s;
+.cursor-glow{
+position:fixed;
+width:400px;
+height:400px;
+background:radial-gradient(circle,
+rgba(255,255,255,.12),
+transparent 70%);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:0;
 }
 
-/* 헤더 */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    padding:28px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:1000;
-    backdrop-filter:blur(20px);
-    background:rgba(255,255,255,.4);
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:30px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+backdrop-filter:blur(20px);
+background:rgba(0,0,0,.3);
+z-index:999;
 }
 
 .logo{
-    font-size:1.4rem;
-    font-weight:800;
-    letter-spacing:2px;
+font-size:24px;
+font-weight:700;
+letter-spacing:2px;
 }
 
-nav{
-    display:flex;
-    gap:40px;
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
 }
 
 nav a{
-    text-decoration:none;
-    color:#111;
-    font-weight:500;
+color:white;
+text-decoration:none;
+opacity:.8;
+transition:.3s;
 }
 
-/* 메인 */
+nav a:hover{
+opacity:1;
+}
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:0 8%;
-}
-
-.hero small{
-    color:#666;
-    letter-spacing:4px;
-    margin-bottom:20px;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:relative;
+text-align:center;
+padding:20px;
 }
 
 .hero h1{
-    font-size:clamp(4rem,10vw,11rem);
-    line-height:.9;
-    font-weight:800;
+font-size:clamp(60px,10vw,140px);
+line-height:1;
+font-weight:700;
 }
 
 .hero p{
-    margin-top:30px;
-    max-width:600px;
-    color:#666;
-    font-size:1.1rem;
-    line-height:1.8;
+margin-top:25px;
+font-size:20px;
+opacity:.7;
 }
 
 .hero-btn{
-    margin-top:40px;
+margin-top:40px;
+padding:16px 35px;
+border:1px solid rgba(255,255,255,.2);
+border-radius:50px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+color:white;
+cursor:pointer;
+transition:.4s;
 }
 
-.hero-btn a{
-    text-decoration:none;
-    background:#111;
-    color:white;
-    padding:18px 35px;
-    border-radius:999px;
-    display:inline-block;
-    transition:.3s;
+.hero-btn:hover{
+transform:translateY(-5px);
+background:white;
+color:black;
 }
 
-.hero-btn a:hover{
-    transform:translateY(-5px);
-}
-
-/* 프로젝트 */
-
-.projects{
-    padding:120px 8%;
+section{
+padding:120px 10%;
+position:relative;
+z-index:1;
 }
 
 .section-title{
-    font-size:4rem;
-    margin-bottom:60px;
+font-size:50px;
+margin-bottom:60px;
 }
-
-.project-grid{
-    display:grid;
-    gap:40px;
-}
-
-.project{
-    position:relative;
-    overflow:hidden;
-    border-radius:35px;
-    cursor:pointer;
-}
-
-.project img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    transition:1s;
-}
-
-.project:hover img{
-    transform:scale(1.08);
-}
-
-.project-info{
-    position:absolute;
-    bottom:40px;
-    left:40px;
-    color:white;
-}
-
-.project-info h3{
-    font-size:4rem;
-}
-
-.project-info p{
-    font-size:1rem;
-    margin-top:5px;
-}
-
-/* about */
 
 .about{
-    padding:150px 8%;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
 }
 
-.about h2{
-    font-size:5rem;
+.about-text{
+font-size:20px;
+line-height:1.8;
+opacity:.8;
 }
-
-.about p{
-    font-size:1.2rem;
-    line-height:2;
-    color:#555;
-}
-
-/* skills */
 
 .skills{
-    padding:120px 8%;
-}
-
-.skill-wrap{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-top:40px;
 }
 
 .skill{
-    padding:18px 30px;
-    border:1px solid #ddd;
-    border-radius:999px;
-    font-weight:600;
+padding:12px 24px;
+border-radius:50px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
 }
 
-/* footer */
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+height:420px;
+border-radius:25px;
+overflow:hidden;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(10px);
+transition:.5s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.thumb{
+height:260px;
+background:linear-gradient(135deg,#222,#111);
+}
+
+.content{
+padding:30px;
+}
+
+.content h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.content p{
+opacity:.6;
+line-height:1.7;
+}
+
+.contact{
+text-align:center;
+}
+
+.contact h2{
+font-size:60px;
+margin-bottom:20px;
+}
+
+.contact p{
+opacity:.6;
+margin-bottom:40px;
+}
+
+.contact-btn{
+padding:18px 40px;
+background:white;
+color:black;
+border:none;
+border-radius:50px;
+font-weight:600;
+cursor:pointer;
+}
+
+.fade{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
 
 footer{
-    padding:80px;
-    text-align:center;
-    color:#777;
+padding:50px;
+text-align:center;
+opacity:.4;
 }
-
-.reveal{
-    opacity:0;
-    transform:translateY(80px);
-    transition:1s;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* 모바일 */
 
 @media(max-width:768px){
 
-nav{
-    display:none;
-}
-
-.hero h1{
-    font-size:4rem;
+.about{
+grid-template-columns:1fr;
 }
 
 .section-title{
-    font-size:2.5rem;
+font-size:38px;
 }
 
-.project img{
-    height:400px;
+.hero h1{
+font-size:70px;
 }
 
-.project-info h3{
-    font-size:2.5rem;
-}
-
-.about{
-    grid-template-columns:1fr;
-}
-
-.about h2{
-    font-size:3rem;
+nav ul{
+display:none;
 }
 
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
-
-<header>
-
-<div class="logo">SJ*5</div>
+<div class="cursor-glow"></div>
 
 <nav>
-<a href="#work">Work</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#contact">Contact</a>
-</nav>
+<div class="logo">SJ</div>
 
-</header>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#work">Work</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
 
 <section class="hero">
 
-<small>WEB DESIGN · UI/UX · BRANDING</small>
-
-<h1>
-성장해나가는<br>
-포트폴리오로<br>
-만나요
-</h1>
+<h1>DESIGN<br>WITH<br>IMPACT</h1>
 
 <p>
-트렌디한 웹사이트와 브랜드 경험을 디자인합니다.
-사용자와 브랜드를 연결하는 감각적인 디지털 디자인을 만듭니다.
+웹디자이너 차수지 포트폴리오
 </p>
 
-<div class="hero-btn">
-<a href="#work">View Projects</a>
-</div>
+<button class="hero-btn">
+View Projects
+</button>
 
 </section>
 
-<section class="projects reveal" id="work">
+<section id="about" class="fade">
 
-<h2 class="section-title">Selected Work</h2>
+<h2 class="section-title">
+About
+</h2>
 
-<div class="project-grid">
+<div class="about">
 
-<div class="project">
-<img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=1600" alt="">
-<div class="project-info">
-<h3>LUNE</h3>
-<p>Jewelry Brand Redesign</p>
-</div>
-</div>
+<div>
+<p class="about-text">
 
-<div class="project">
-<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1600" alt="">
-<div class="project-info">
-<h3>NOVA</h3>
-<p>Fashion Platform</p>
-</div>
-</div>
+안녕하세요.
+사용자 경험을 고려한
+UI 디자인과 웹디자인을 만드는
+디자이너 차수지입니다.
 
-<div class="project">
-<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600" alt="">
-<div class="project-info">
-<h3>VOID</h3>
-<p>Editorial Campaign</p>
-</div>
-</div>
+브랜드의 가치를 시각적으로 전달하고
+심플하면서도 기억에 남는 경험을
+만드는 것을 좋아합니다.
 
-</div>
-
-</section>
-
-<section class="about reveal" id="about">
-
-<h2>About</h2>
-
-<p>
-안녕하세요. 웹디자이너 차수지입니다.
-
-브랜드가 가진 이야기를 디지털 경험으로 풀어내는 것을 좋아합니다.
-
-UI/UX 디자인부터 브랜드 아이덴티티, 웹사이트 구축까지 사용자 중심의 디자인을 연구하고 있습니다.
-
-미니멀하지만 강렬한 비주얼을 만드는 것을 목표로 작업합니다.
 </p>
+</div>
 
-</section>
+<div>
 
-<section class="skills reveal" id="skills">
+<div class="skills">
 
-<h2 class="section-title">Skills</h2>
-
-<div class="skill-wrap">
-
+<div class="skill">Figma</div>
 <div class="skill">Photoshop</div>
 <div class="skill">Illustrator</div>
-<div class="skill">Figma</div>
 <div class="skill">HTML</div>
 <div class="skill">CSS</div>
-<div class="skill">JavaScript</div>
-<div class="skill">Brand Design</div>
 <div class="skill">UI/UX</div>
+<div class="skill">Branding</div>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
-<footer id="contact">
+<section id="work" class="fade">
 
-<h3>Let's Work Together</h3>
+<h2 class="section-title">
+Selected Works
+</h2>
 
-<br>
+<div class="projects">
 
-<p>chasuji@email.com</p>
+<div class="card">
+<div class="thumb"></div>
+<div class="content">
+<h3>LUNE</h3>
+<p>주얼리 쇼핑몰 리디자인 프로젝트</p>
+</div>
+</div>
 
-<br>
+<div class="card">
+<div class="thumb"></div>
+<div class="content">
+<h3>Cosmetic</h3>
+<p>뷰티 브랜드 웹사이트 리뉴얼</p>
+</div>
+</div>
 
-<p>© 2026 SJ*5 Portfolio</p>
+<div class="card">
+<div class="thumb"></div>
+<div class="content">
+<h3>Fashion</h3>
+<p>패션 플랫폼 UIUX 디자인</p>
+</div>
+</div>
 
+</div>
+
+</section>
+
+<section id="contact" class="contact fade">
+
+<h2>Let's Work Together</h2>
+
+<p>
+chasuji@email.com
+</p>
+
+<button class="contact-btn">
+Contact Me
+</button>
+
+</section>
+
+<footer>
+© 2026 CHA SUJI PORTFOLIO
 </footer>
 
 <script>
 
-/* 커서 */
-
-const cursor = document.querySelector(".cursor");
+const glow=document.querySelector(".cursor-glow");
 
 document.addEventListener("mousemove",(e)=>{
 
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
+glow.style.left=e.clientX+"px";
+glow.style.top=e.clientY+"px";
 
 });
 
-/* 프로젝트 hover */
+const observer=new IntersectionObserver(entries=>{
 
-document.querySelectorAll(".project").forEach(item=>{
+entries.forEach(entry=>{
 
-item.addEventListener("mouseenter",()=>{
+if(entry.isIntersecting){
 
-cursor.style.width="70px";
-cursor.style.height="70px";
-
-});
-
-item.addEventListener("mouseleave",()=>{
-
-cursor.style.width="20px";
-cursor.style.height="20px";
-
-});
-
-});
-
-/* 스크롤 애니메이션 */
-
-const reveal = document.querySelectorAll(".reveal");
-
-window.addEventListener("scroll",()=>{
-
-reveal.forEach(section=>{
-
-const top = section.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 100){
-
-section.classList.add("active");
+entry.target.classList.add("show");
 
 }
 
 });
+
+});
+
+document.querySelectorAll(".fade").forEach(el=>{
+
+observer.observe(el);
 
 });
 

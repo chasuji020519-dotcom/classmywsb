@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Cha Suji Portfolio</title>
+<title>CHA SUJI Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,63 +17,49 @@ box-sizing:border-box;
 font-family:'Pretendard',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
 background:#0b0b0b;
 color:white;
 overflow-x:hidden;
 }
 
-.cursor-glow{
-position:fixed;
-width:400px;
-height:400px;
-background:radial-gradient(circle,
-rgba(255,255,255,.12),
-transparent 70%);
-pointer-events:none;
-transform:translate(-50%,-50%);
-z-index:0;
-}
+/* NAV */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-padding:30px 10%;
+padding:25px 80px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+z-index:1000;
 backdrop-filter:blur(20px);
-background:rgba(0,0,0,.3);
-z-index:999;
 }
 
 .logo{
 font-size:24px;
-font-weight:700;
-letter-spacing:2px;
+font-weight:800;
+letter-spacing:3px;
 }
 
-nav ul{
+.menu{
 display:flex;
 gap:40px;
-list-style:none;
 }
 
-nav a{
+.menu a{
 color:white;
 text-decoration:none;
-opacity:.8;
+opacity:.7;
 transition:.3s;
 }
 
-nav a:hover{
+.menu a:hover{
 opacity:1;
 }
+
+/* HERO */
 
 .hero{
 height:100vh;
@@ -82,300 +68,366 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 position:relative;
-text-align:center;
-padding:20px;
 }
 
-.hero h1{
-font-size:clamp(60px,10vw,140px);
-line-height:1;
-font-weight:700;
+.title-wrap{
+height:150px;
+overflow:hidden;
 }
 
-.hero p{
-margin-top:25px;
-font-size:20px;
-opacity:.7;
+.title-slider{
+position:relative;
+height:150px;
 }
 
-.hero-btn{
-margin-top:40px;
-padding:16px 35px;
-border:1px solid rgba(255,255,255,.2);
-border-radius:50px;
+.word{
+height:150px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:110px;
+font-weight:800;
+letter-spacing:-4px;
+position:absolute;
+width:100%;
+left:0;
+animation:textFlow 12s infinite;
+}
+
+.word:nth-child(2){
+animation-delay:3s;
+}
+
+.word:nth-child(3){
+animation-delay:6s;
+}
+
+.word:nth-child(4){
+animation-delay:9s;
+}
+
+@keyframes textFlow{
+
+0%{
+transform:translateY(-120%);
+opacity:0;
+}
+
+10%{
+transform:translateY(0);
+opacity:1;
+}
+
+25%{
+transform:translateY(0);
+opacity:1;
+}
+
+35%{
+transform:translateY(120%);
+opacity:0;
+}
+
+100%{
+transform:translateY(120%);
+opacity:0;
+}
+
+}
+
+/* INTRO CARD */
+
+.intro-card{
+margin-top:60px;
+width:900px;
+max-width:90%;
+padding:40px;
+border-radius:30px;
+
 background:rgba(255,255,255,.05);
-backdrop-filter:blur(10px);
-color:white;
-cursor:pointer;
-transition:.4s;
+backdrop-filter:blur(30px);
+
+border:1px solid rgba(255,255,255,.08);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:40px;
 }
 
-.hero-btn:hover{
-transform:translateY(-5px);
+.intro-text h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.intro-text p{
+opacity:.7;
+line-height:1.8;
+}
+
+.cta{
+padding:16px 30px;
+border-radius:50px;
+background:white;
+color:black;
+font-weight:700;
+cursor:pointer;
+}
+
+/* CATEGORY */
+
+.section{
+padding:120px 10%;
+}
+
+.section-title{
+font-size:48px;
+font-weight:800;
+margin-bottom:50px;
+}
+
+.tabs{
+display:flex;
+gap:20px;
+margin-bottom:60px;
+flex-wrap:wrap;
+}
+
+.tab{
+padding:14px 25px;
+border-radius:50px;
+border:1px solid rgba(255,255,255,.2);
+cursor:pointer;
+transition:.3s;
+}
+
+.tab.active{
 background:white;
 color:black;
 }
 
-section{
-padding:120px 10%;
-position:relative;
-z-index:1;
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
 }
 
-.section-title{
-font-size:50px;
-margin-bottom:60px;
+.project{
+height:350px;
+border-radius:25px;
+overflow:hidden;
+background:#171717;
+padding:30px;
+transition:.4s;
 }
+
+.project:hover{
+transform:translateY(-10px);
+}
+
+.project img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:18px;
+margin-bottom:20px;
+}
+
+.project h3{
+margin-bottom:10px;
+}
+
+.project p{
+opacity:.6;
+}
+
+/* ABOUT */
 
 .about{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:80px;
-align-items:center;
+gap:60px;
 }
 
-.about-text{
-font-size:20px;
-line-height:1.8;
-opacity:.8;
-}
-
-.skills{
-display:flex;
-flex-wrap:wrap;
-gap:15px;
-margin-top:40px;
-}
-
-.skill{
-padding:12px 24px;
-border-radius:50px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.1);
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.card{
-height:420px;
+.about-box{
+background:#141414;
+padding:40px;
 border-radius:25px;
-overflow:hidden;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-transition:.5s;
-cursor:pointer;
 }
 
-.card:hover{
-transform:translateY(-12px);
-}
-
-.thumb{
-height:260px;
-background:linear-gradient(135deg,#222,#111);
-}
-
-.content{
-padding:30px;
-}
-
-.content h3{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.content p{
-opacity:.6;
-line-height:1.7;
-}
-
-.contact{
-text-align:center;
-}
-
-.contact h2{
-font-size:60px;
+.about-box h3{
 margin-bottom:20px;
+font-size:26px;
 }
 
-.contact p{
-opacity:.6;
-margin-bottom:40px;
+.about-box p{
+opacity:.7;
+line-height:1.8;
 }
 
-.contact-btn{
-padding:18px 40px;
-background:white;
-color:black;
-border:none;
-border-radius:50px;
-font-weight:600;
-cursor:pointer;
+footer{
+padding:100px;
+text-align:center;
+opacity:.5;
 }
 
-.fade{
+.reveal{
 opacity:0;
 transform:translateY(50px);
 transition:1s;
 }
 
-.fade.show{
+.reveal.show{
 opacity:1;
 transform:translateY(0);
 }
 
-footer{
-padding:50px;
-text-align:center;
-opacity:.4;
+@media(max-width:768px){
+
+.word{
+font-size:55px;
 }
 
-@media(max-width:768px){
+.intro-card{
+flex-direction:column;
+text-align:center;
+}
 
 .about{
 grid-template-columns:1fr;
-}
-
-.section-title{
-font-size:38px;
-}
-
-.hero h1{
-font-size:70px;
-}
-
-nav ul{
-display:none;
 }
 
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="cursor-glow"></div>
-
 <nav>
-<div class="logo">SJ</div>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#work">Work</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
+<div class="logo">SUJI</div>
+
+<div class="menu">
+<a href="#">Home</a>
+<a href="#">Work</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
+</div>
+
 </nav>
 
 <section class="hero">
 
-<h1>DESIGN<br>WITH<br>IMPACT</h1>
+<div class="title-wrap">
 
+<div class="title-slider">
+
+<div class="word">WEB DESIGNER</div>
+<div class="word">UI/UX DESIGNER</div>
+<div class="word">BRAND DESIGNER</div>
+<div class="word">CREATIVE THINKER</div>
+
+</div>
+
+</div>
+
+<div class="intro-card">
+
+<div class="intro-text">
+<h2>안녕하세요, 차수지입니다.</h2>
 <p>
-웹디자이너 차수지 포트폴리오
-</p>
-
-<button class="hero-btn">
-View Projects
-</button>
-
-</section>
-
-<section id="about" class="fade">
-
-<h2 class="section-title">
-About
-</h2>
-
-<div class="about">
-
-<div>
-<p class="about-text">
-
-안녕하세요.
-사용자 경험을 고려한
-UI 디자인과 웹디자인을 만드는
-디자이너 차수지입니다.
-
-브랜드의 가치를 시각적으로 전달하고
-심플하면서도 기억에 남는 경험을
-만드는 것을 좋아합니다.
-
+사용자의 경험을 생각하며 디자인하는
+웹디자이너입니다.
+브랜딩, 웹디자인, 상세페이지, UI/UX를
+제작합니다.
 </p>
 </div>
 
-<div>
-
-<div class="skills">
-
-<div class="skill">Figma</div>
-<div class="skill">Photoshop</div>
-<div class="skill">Illustrator</div>
-<div class="skill">HTML</div>
-<div class="skill">CSS</div>
-<div class="skill">UI/UX</div>
-<div class="skill">Branding</div>
-
-</div>
-
+<div class="cta">
+VIEW PROJECTS
 </div>
 
 </div>
 
 </section>
 
-<section id="work" class="fade">
+<section class="section reveal">
 
 <h2 class="section-title">
 Selected Works
 </h2>
 
-<div class="projects">
+<div class="tabs">
 
-<div class="card">
-<div class="thumb"></div>
-<div class="content">
-<h3>LUNE</h3>
-<p>주얼리 쇼핑몰 리디자인 프로젝트</p>
-</div>
-</div>
+<div class="tab active" data-filter="all">All</div>
+<div class="tab" data-filter="web">Web</div>
+<div class="tab" data-filter="ui">UI/UX</div>
+<div class="tab" data-filter="branding">Branding</div>
 
-<div class="card">
-<div class="thumb"></div>
-<div class="content">
-<h3>Cosmetic</h3>
-<p>뷰티 브랜드 웹사이트 리뉴얼</p>
-</div>
 </div>
 
-<div class="card">
-<div class="thumb"></div>
-<div class="content">
-<h3>Fashion</h3>
-<p>패션 플랫폼 UIUX 디자인</p>
+<div class="grid">
+
+<div class="project web">
+<h3>Jewelry Shop</h3>
+<p>주얼리 쇼핑몰 리디자인</p>
 </div>
+
+<div class="project ui">
+<h3>Mobile App</h3>
+<p>UI/UX 개선 프로젝트</p>
+</div>
+
+<div class="project branding">
+<h3>Brand Identity</h3>
+<p>브랜드 구축 프로젝트</p>
+</div>
+
+<div class="project web">
+<h3>Fashion Store</h3>
+<p>패션 플랫폼 디자인</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="contact" class="contact fade">
+<section class="section reveal">
 
-<h2>Let's Work Together</h2>
+<h2 class="section-title">
+About Me
+</h2>
+
+<div class="about">
+
+<div class="about-box">
+
+<h3>Career Goal</h3>
 
 <p>
-chasuji@email.com
+트렌드를 빠르게 분석하고
+사용자 경험을 고려한
+디자인을 만드는 디자이너가 되고 싶습니다.
 </p>
 
-<button class="contact-btn">
-Contact Me
-</button>
+</div>
+
+<div class="about-box">
+
+<h3>Skills</h3>
+
+<p>
+Photoshop
+Illustrator
+Figma
+HTML
+CSS
+JavaScript
+</p>
+
+</div>
+
+</div>
 
 </section>
 
@@ -385,22 +437,32 @@ Contact Me
 
 <script>
 
-const glow=document.querySelector(".cursor-glow");
+const tabs = document.querySelectorAll('.tab');
+const projects = document.querySelectorAll('.project');
 
-document.addEventListener("mousemove",(e)=>{
+tabs.forEach(tab=>{
 
-glow.style.left=e.clientX+"px";
-glow.style.top=e.clientY+"px";
+tab.addEventListener('click',()=>{
 
-});
+tabs.forEach(t=>t.classList.remove('active'));
 
-const observer=new IntersectionObserver(entries=>{
+tab.classList.add('active');
 
-entries.forEach(entry=>{
+const filter = tab.dataset.filter;
 
-if(entry.isIntersecting){
+projects.forEach(project=>{
 
-entry.target.classList.add("show");
+if(filter==="all"){
+
+project.style.display="block";
+
+}else{
+
+if(project.classList.contains(filter)){
+project.style.display="block";
+}else{
+project.style.display="none";
+}
 
 }
 
@@ -408,10 +470,22 @@ entry.target.classList.add("show");
 
 });
 
-document.querySelectorAll(".fade").forEach(el=>{
+});
 
+const observer = new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+
+});
+
+});
+
+document.querySelectorAll('.reveal').forEach(el=>{
 observer.observe(el);
-
 });
 
 </script>

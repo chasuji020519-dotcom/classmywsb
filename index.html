@@ -5,10 +5,269 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SJ*5 Portfolio</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Pretendard',sans-serif;
+}
+
+:root{
+    --bg:#f8f8f8;
+    --text:#111;
+    --gray:#777;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* 커서 */
+
+.cursor{
+    width:20px;
+    height:20px;
+    background:#111;
+    border-radius:50%;
+    position:fixed;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:9999;
+    transition:.2s;
+}
+
+/* 헤더 */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:28px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.4);
+}
+
+.logo{
+    font-size:1.4rem;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+nav{
+    display:flex;
+    gap:40px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-weight:500;
+}
+
+/* 메인 */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:0 8%;
+}
+
+.hero small{
+    color:#666;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(4rem,10vw,11rem);
+    line-height:.9;
+    font-weight:800;
+}
+
+.hero p{
+    margin-top:30px;
+    max-width:600px;
+    color:#666;
+    font-size:1.1rem;
+    line-height:1.8;
+}
+
+.hero-btn{
+    margin-top:40px;
+}
+
+.hero-btn a{
+    text-decoration:none;
+    background:#111;
+    color:white;
+    padding:18px 35px;
+    border-radius:999px;
+    display:inline-block;
+    transition:.3s;
+}
+
+.hero-btn a:hover{
+    transform:translateY(-5px);
+}
+
+/* 프로젝트 */
+
+.projects{
+    padding:120px 8%;
+}
+
+.section-title{
+    font-size:4rem;
+    margin-bottom:60px;
+}
+
+.project-grid{
+    display:grid;
+    gap:40px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+    border-radius:35px;
+    cursor:pointer;
+}
+
+.project img{
+    width:100%;
+    height:700px;
+    object-fit:cover;
+    transition:1s;
+}
+
+.project:hover img{
+    transform:scale(1.08);
+}
+
+.project-info{
+    position:absolute;
+    bottom:40px;
+    left:40px;
+    color:white;
+}
+
+.project-info h3{
+    font-size:4rem;
+}
+
+.project-info p{
+    font-size:1rem;
+    margin-top:5px;
+}
+
+/* about */
+
+.about{
+    padding:150px 8%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.about h2{
+    font-size:5rem;
+}
+
+.about p{
+    font-size:1.2rem;
+    line-height:2;
+    color:#555;
+}
+
+/* skills */
+
+.skills{
+    padding:120px 8%;
+}
+
+.skill-wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.skill{
+    padding:18px 30px;
+    border:1px solid #ddd;
+    border-radius:999px;
+    font-weight:600;
+}
+
+/* footer */
+
+footer{
+    padding:80px;
+    text-align:center;
+    color:#777;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(80px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* 모바일 */
+
+@media(max-width:768px){
+
+nav{
+    display:none;
+}
+
+.hero h1{
+    font-size:4rem;
+}
+
+.section-title{
+    font-size:2.5rem;
+}
+
+.project img{
+    height:400px;
+}
+
+.project-info h3{
+    font-size:2.5rem;
+}
+
+.about{
+    grid-template-columns:1fr;
+}
+
+.about h2{
+    font-size:3rem;
+}
+
+}
+</style>
 </head>
 
 <body>
@@ -16,75 +275,176 @@
 <div class="cursor"></div>
 
 <header>
-    <div class="logo">SJ*5</div>
 
-    <nav>
-        <a href="#">Work</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
+<div class="logo">SJ*5</div>
+
+<nav>
+<a href="#work">Work</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
+
 </header>
 
 <section class="hero">
 
-    <p class="sub">WEB DESIGNER · UI/UX · BRANDING</p>
+<small>WEB DESIGN · UI/UX · BRANDING</small>
 
-    <h1>
-        Creating<br>
-        Digital<br>
-        Experiences
-    </h1>
+<h1>
+Creative<br>
+Digital<br>
+Experience
+</h1>
 
-    <div class="scroll">
-        Scroll ↓
-    </div>
+<p>
+트렌디한 웹사이트와 브랜드 경험을 디자인합니다.
+사용자와 브랜드를 연결하는 감각적인 디지털 디자인을 만듭니다.
+</p>
 
-</section>
-
-<section class="projects">
-
-    <div class="project">
-        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" alt="">
-        <div class="overlay">
-            <h2>LUNE</h2>
-            <span>Jewelry Shop</span>
-        </div>
-    </div>
-
-    <div class="project">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723?w=1200" alt="">
-        <div class="overlay">
-            <h2>MONO</h2>
-            <span>Fashion Brand</span>
-        </div>
-    </div>
-
-    <div class="project">
-        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=1200" alt="">
-        <div class="overlay">
-            <h2>NOVA</h2>
-            <span>Editorial Design</span>
-        </div>
-    </div>
+<div class="hero-btn">
+<a href="#work">View Projects</a>
+</div>
 
 </section>
 
-<section class="about">
+<section class="projects reveal" id="work">
 
-    <h2>About Me</h2>
+<h2 class="section-title">Selected Work</h2>
 
-    <p>
-        안녕하세요.<br>
-        브랜드와 사용자 경험을 연결하는 웹 디자이너입니다.
-    </p>
+<div class="project-grid">
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=1600" alt="">
+<div class="project-info">
+<h3>LUNE</h3>
+<p>Jewelry Brand Redesign</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1600" alt="">
+<div class="project-info">
+<h3>NOVA</h3>
+<p>Fashion Platform</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600" alt="">
+<div class="project-info">
+<h3>VOID</h3>
+<p>Editorial Campaign</p>
+</div>
+</div>
+
+</div>
 
 </section>
 
-<footer>
-    © 2026 SJ*5 Portfolio
+<section class="about reveal" id="about">
+
+<h2>About</h2>
+
+<p>
+안녕하세요. 웹디자이너 차수지입니다.
+
+브랜드가 가진 이야기를 디지털 경험으로 풀어내는 것을 좋아합니다.
+
+UI/UX 디자인부터 브랜드 아이덴티티, 웹사이트 구축까지 사용자 중심의 디자인을 연구하고 있습니다.
+
+미니멀하지만 강렬한 비주얼을 만드는 것을 목표로 작업합니다.
+</p>
+
+</section>
+
+<section class="skills reveal" id="skills">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skill-wrap">
+
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">Figma</div>
+<div class="skill">HTML</div>
+<div class="skill">CSS</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Brand Design</div>
+<div class="skill">UI/UX</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<h3>Let's Work Together</h3>
+
+<br>
+
+<p>chasuji@email.com</p>
+
+<br>
+
+<p>© 2026 SJ*5 Portfolio</p>
+
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+/* 커서 */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+
+});
+
+/* 프로젝트 hover */
+
+document.querySelectorAll(".project").forEach(item=>{
+
+item.addEventListener("mouseenter",()=>{
+
+cursor.style.width="70px";
+cursor.style.height="70px";
+
+});
+
+item.addEventListener("mouseleave",()=>{
+
+cursor.style.width="20px";
+cursor.style.height="20px";
+
+});
+
+});
+
+/* 스크롤 애니메이션 */
+
+const reveal = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+reveal.forEach(section=>{
+
+const top = section.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+section.classList.add("active");
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
